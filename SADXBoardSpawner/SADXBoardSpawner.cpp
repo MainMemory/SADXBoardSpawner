@@ -18,7 +18,6 @@ void __cdecl Snowboard_Delete_r(ObjectMaster *obj)
 		snowboard = nullptr;
 }
 
-DataPointer(int, PressedButtons, 0x3B0E354);
 extern "C"
 {
 	__declspec(dllexport) void __cdecl OnFrame()
@@ -26,7 +25,7 @@ extern "C"
 		if (GameMode == GameModes_Menu || CurrentLevel == LevelIDs_SkyChase1 || CurrentLevel == LevelIDs_SkyChase2 || !GetCharacterObject(0))
 			return;
 		ObjectMaster *obj = GetCharacterObject(0);
-		if (PressedButtons & Buttons_Z)
+		if (ControllerPointers[0]->PressedButtons & Buttons_Z)
 			switch (obj->Data1->CharID)
 			{
 			case Characters_Sonic:
